@@ -6,6 +6,7 @@ from vehicle.motorcycle import Motorcycle
 from vehicle.plane import Plane
 from vehicle.truck import Truck
 from store.box import Box
+import time
 
 def register_vehicles(dealership):
     print("Which kind of vehicle would you like to register? ")
@@ -20,6 +21,7 @@ def register_vehicles(dealership):
             capacity = input("Enter the capacity of the boat: ")
             model = input("Enter the model of the boat: ")
             dealership.add_vehicle(Boat(name, max_speed, price, capacity, model))
+            return
 
         if choice == "2":
             name = input("Enter the name of the car: ")
@@ -28,6 +30,7 @@ def register_vehicles(dealership):
             wheels = input("Enter the wheels of the car: ")
             brand = input("Enter the brand of the car: ")
             dealership.add_vehicle(Car(name, max_speed, price, wheels, brand))
+            return
 
         if choice == "3":
             name = input("Enter the name of the helicopter: ")
@@ -36,6 +39,7 @@ def register_vehicles(dealership):
             wingspan = input("Enter the wingspan of the helicopter: ")
             occupants = input("Enter the occupants of the helicopter: ")
             dealership.add_vehicle(Helicopter(name, max_speed, price, wingspan, occupants))
+            return
 
         if choice == "4":
             name = input("Enter the name of the motorboat: ")
@@ -44,6 +48,7 @@ def register_vehicles(dealership):
             capacity = input("Enter the capacity of the motorboat: ")
             motor_power = input("Enter the motor power of the motorboat: ")
             dealership.add_vehicle(Motorboat(name, max_speed, price, capacity, motor_power))
+            return
 
         if choice == "5":
             name = input("Enter the name of the motorcycle: ")
@@ -52,6 +57,7 @@ def register_vehicles(dealership):
             wheels = input("Enter the wheels of the motorcycle: ")
             cc = input("Enter the cylinders of the motorcycle: ")
             dealership.add_vehicle(Motorcycle(name, max_speed, price, wheels, cc))
+            return
 
         if choice == "6":
             name = input("Enter the name of the plane: ")
@@ -60,6 +66,7 @@ def register_vehicles(dealership):
             wingspan = input("Enter the wingspan of the plane: ")
             occupants = input("Enter the occupants capacity of the plane: ")
             dealership.add_vehicle(Plane(name, max_speed, price, wingspan, occupants))
+            return
         
         if choice == "7":
             name = input("Enter the name of the truck: ")
@@ -68,6 +75,7 @@ def register_vehicles(dealership):
             capacity = input("Enter the capacity of the truck: ")
             num_wheels = input("Enter the motor power of the truck: ")
             dealership.add_vehicle(Truck(name, max_speed, price, capacity, num_wheels))
+            return
 
         else:
             print("Invalid option! Please choose a valid option.")
@@ -86,6 +94,7 @@ def main():
             register_vehicles(dealership)
         elif option == '2':
             dealership.show_vehicles()
+            time.sleep(3)
         elif option == '3':
             vehicle_name = input("\nInsert the name of the vehicle you want to buy: ")
             print(dealership.purchase_vehicle(vehicle_name))
